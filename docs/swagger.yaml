@@ -1,0 +1,101 @@
+basePath: /
+definitions:
+  handler.response:
+    properties:
+      message:
+        type: string
+      results: {}
+      status:
+        type: string
+    type: object
+host: localhost:3000
+info:
+  contact:
+    email: zduisekov@gmail.com
+    name: API Support
+  title: TEST service API
+paths:
+  /health:
+    get:
+      consumes:
+      - '*/*'
+      description: проверка статуса.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: успешный ответ
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.response'
+            - properties:
+                message:
+                  type: string
+                status:
+                  type: string
+              type: object
+      summary: Статус сервера
+      tags:
+      - health
+  /service/price:
+    get:
+      consumes:
+      - '*/*'
+      description: проверка статуса.
+      parameters:
+      - example: BTC,ETH
+        in: query
+        name: fsyms
+        type: string
+      - example: USD,EUR
+        in: query
+        name: tsyms
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.response'
+            - properties:
+                message:
+                  type: string
+                results:
+                  type: object
+                status:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.response'
+            - properties:
+                message:
+                  type: string
+                results:
+                  type: object
+                status:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.response'
+            - properties:
+                message:
+                  type: string
+                results:
+                  type: object
+                status:
+                  type: string
+              type: object
+      summary: Статус сервера
+      tags:
+      - price
+schemes:
+- http
+swagger: "2.0"
