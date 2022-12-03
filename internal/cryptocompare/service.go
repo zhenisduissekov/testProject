@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/rs/zerolog/log"
-	"github.com/zhenisduissekov/testProject/pkg/repository"
+	"github.com/zhenisduissekov/testProject/internal/repository"
 )
 
 type CryptoCompareConfig struct {
@@ -181,6 +181,7 @@ func (c Client) ReadFromDB(reqItems GetPriceReqItems) (result []CryptoResponse, 
 				return result, fmt.Errorf("error while getting data from db: %w", err)
 			}
 			var temp CryptoResponse
+			log.Info().Msgf("data: %s", data)
 			err = json.Unmarshal([]byte(data), &temp)
 			if err != nil {
 				return result, fmt.Errorf("error while unmarshalling data: %w", err)

@@ -3,7 +3,7 @@ package repository
 import (
 	"fmt"
 	"github.com/rs/zerolog/log"
-	"github.com/zhenisduissekov/testProject/pkg/connection"
+	"github.com/zhenisduissekov/testProject/internal/connection"
 
 	sq "github.com/Masterminds/squirrel"
 )

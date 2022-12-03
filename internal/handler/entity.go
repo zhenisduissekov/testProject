@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/zhenisduissekov/testProject/pkg/cryptocompare"
-	"github.com/zhenisduissekov/testProject/pkg/socket"
+	"github.com/zhenisduissekov/testProject/internal/cryptocompare"
+	"github.com/zhenisduissekov/testProject/internal/socket"
 )
 
 type Handler struct {

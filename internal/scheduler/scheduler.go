@@ -2,7 +2,7 @@ package scheduler
 
 import (
 	"github.com/rs/zerolog/log"
-	"github.com/zhenisduissekov/testProject/pkg/cryptocompare"
+	"github.com/zhenisduissekov/testProject/internal/cryptocompare"
 	"time"
 )
 

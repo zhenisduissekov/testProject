@@ -3,7 +3,7 @@ package handler
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/rs/zerolog/log"
-	"github.com/zhenisduissekov/testProject/pkg/cryptocompare"
+	"github.com/zhenisduissekov/testProject/internal/cryptocompare"
 )
 
 // GetPrices godoc

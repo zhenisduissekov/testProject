@@ -8,7 +8,7 @@ import (
 	"sync"
 
 	"github.com/rs/zerolog/log"
-	"github.com/zhenisduissekov/testProject/pkg/repository"
+	"github.com/zhenisduissekov/testProject/internal/repository"
 	"golang.org/x/time/rate"
 )
 

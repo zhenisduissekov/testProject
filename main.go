@@ -10,18 +10,18 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	_ "github.com/zhenisduissekov/testProject/docs"
-	"github.com/zhenisduissekov/testProject/pkg/config"
-	"github.com/zhenisduissekov/testProject/pkg/connection"
-	"github.com/zhenisduissekov/testProject/pkg/cryptocompare"
-	"github.com/zhenisduissekov/testProject/pkg/handler"
-	lg "github.com/zhenisduissekov/testProject/pkg/logger"
-	"github.com/zhenisduissekov/testProject/pkg/repository"
-	"github.com/zhenisduissekov/testProject/pkg/socket"
+	"github.com/zhenisduissekov/testProject/internal/config"
+	"github.com/zhenisduissekov/testProject/internal/connection"
+	"github.com/zhenisduissekov/testProject/internal/cryptocompare"
+	"github.com/zhenisduissekov/testProject/internal/handler"
+	lg "github.com/zhenisduissekov/testProject/internal/logger"
+	"github.com/zhenisduissekov/testProject/internal/repository"
+	"github.com/zhenisduissekov/testProject/internal/socket"
 	"time"
 )
 
 var (
-	listenAddress = ":3000"
+	listenAddress = ":3001"
 	reqLogFormat  = "[${time}] ${status} - ${latency} ${method} ${path} ${ip} ${url} in ${bytesReceived} bytes/ out ${bytesSent} bytes\n"
 	shutDownDelay = 2 * time.Second
 )
@@ -92,7 +92,7 @@ func server(h *handler.Handler, serviceName string) *fiber.App {
 	api := app.Group("/service")
 	{
 		api.Get("/price", h.GetPrice)
-		api.Get("/ws/price", websocket.New(h.Publish))
+		api.Get("/ws/price", websocket.New(h.GetPriceWS))
 	}
 	return app
 }

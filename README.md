@@ -48,3 +48,22 @@ Data in response must be fresh (realtime). 2-3 minutes discrepancy is ok.
 ### Зависимости
 
 Список всех используемых библиотек можно найти в файле `go.mod`.
+
+
+### Сборка
+
+Для сборки проекта необходимо выполнить команду:
+
+    docker-compose up
+снести
+    docker-compose down
+
+### Запуск
+запуск сервиса можно осуществить с помощью команды:
+    go run main.go
+
+### Swagger
+для пересборки swagger необходимо выполнить команду:
+    swag init
+сам сваггер доступен по адресу:
+    http://localhost:[port]/swagger

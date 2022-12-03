@@ -13,7 +13,6 @@ require (
 	github.com/joho/godotenv v1.4.0
 	github.com/rs/zerolog v1.28.0
 	github.com/swaggo/swag v1.8.8
-	golang.org/x/net v0.2.0
 	golang.org/x/time v0.2.0
 )
 
@@ -67,8 +66,9 @@ require (
 	github.com/valyala/fasthttp v1.41.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
 	golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa // indirect
-	golang.org/x/sys v0.2.0 // indirect
-	golang.org/x/text v0.4.0 // indirect
+	golang.org/x/net v0.0.0-20220906165146-f3363e06e74c // indirect
+	golang.org/x/sys v0.0.0-20220811171246-fbc7d0a398ab // indirect
+	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/tools v0.1.12 // indirect
 	google.golang.org/protobuf v1.26.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

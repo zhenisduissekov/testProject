@@ -7,13 +7,13 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/rs/zerolog/log"
-	"github.com/zhenisduissekov/testProject/pkg/connection"
-	"github.com/zhenisduissekov/testProject/pkg/cryptocompare"
-	"github.com/zhenisduissekov/testProject/pkg/scheduler"
+	"github.com/zhenisduissekov/testProject/internal/connection"
+	"github.com/zhenisduissekov/testProject/internal/cryptocompare"
+	"github.com/zhenisduissekov/testProject/internal/scheduler"
 )
 
 const (
-	filePath = "pkg/config/messages.yaml"
+	filePath = "internal/config/messages.yaml"
 )
 
 type Config struct {
@@ -46,7 +46,7 @@ func New() *Config {
 			Pass:            getEnv("DB_PASS", "postgres"),
 			DB:              getEnv("DB_NAME", "postgres"),
 			TimeOut:         getEnv("DB_TIMEOUT", "10"),
-			MigrationPath:   getEnv("DB_MIGRATION_PATH", "pkg/migrations"),
+			MigrationPath:   getEnv("DB_MIGRATION_PATH", "internal/migrations"),
 			MigrationScheme: getEnv("DB_MIGRATION_SCHEME", "schema_migrations"),
 		},
 		HTTP: HTTPConfig{
