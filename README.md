@@ -60,7 +60,7 @@ Using websockets is a plus. Clean architecture is a plus. Service scalability is
 
     docker-compose up
 снести
-    docker-compose down
+    docker-compose down --rmi local
 
 ### Запуск
 запуск сервиса можно осуществить с помощью команды:
@@ -86,3 +86,5 @@ Using websockets is a plus. Clean architecture is a plus. Service scalability is
 сообщение-запрос должен быть формата JSON
 
     {"tsyms":"BTC", "fsyms":"EUR"}
+* если отправить пустой json {}, то вернутся все данные по всем валютам указанным в конфигурационном файле.
+** проверку получения данных при условии если сервис сryptocompare не работает, производил отключением Wi-Fi.

@@ -19,6 +19,7 @@ func (c Client) GetPrice(reqItems PriceReqItems) (result interface{}, err error)
 
 	result, err = c.requestFromCrypto()
 	if err != nil {
+		log.Err(err).Msg("Error while getting quotes from CryptoCompare")
 		result, err = c.readFromDB()
 		if err != nil {
 			return nil, fmt.Errorf("error while reading from DB: %w", err)
@@ -87,7 +88,7 @@ func (c Client) parseResponse(resp *http.Response, fsyms, tsyms string) (result 
 			}
 
 			dataDisplay := objmap["DISPLAY"][v1][v2]
-			err = json.Unmarshal(dataRaw, &temp.Display)
+			err = json.Unmarshal(dataDisplay, &temp.Display)
 			if err != nil {
 				return nil, fmt.Errorf("error while unmarshalling data: %w", err)
 			}
