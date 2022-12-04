@@ -2,6 +2,7 @@ FROM golang:1.19 AS build
 RUN mkdir testproject && chmod 777 -R ./testproject
 COPY . /testproject
 WORKDIR /testproject
+RUN go test -v ./...
 RUN go get -v
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o .
 

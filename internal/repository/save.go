@@ -22,6 +22,6 @@ func (r Repository) Save(raw, display []byte, fsyms, tsyms string, error error) 
 		return fmt.Errorf("error while building sql: %w", err)
 	}
 
-	log.Debug().Msgf("Executing sql: [%s] with args: [%v]", sql, args[0])
+	log.Trace().Msgf("Executing sql: [%s] with args: [%v]", sql, args[0])
 	return r.connection.Save(sql, args)
 }

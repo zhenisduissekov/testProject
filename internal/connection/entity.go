@@ -3,6 +3,8 @@ package connection
 import (
 	"context"
 	"fmt"
+	"github.com/jackc/pgconn"
+	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/pgxpool"
 	"github.com/rs/zerolog/log"
 )
@@ -23,9 +25,17 @@ type DBConfig struct {
 	MigrationScheme string
 }
 
+type DB interface {
+	Ping(ctx context.Context) error
+	QueryRow(ctx context.Context, sql string, args ...interface{}) pgx.Row
+	Exec(ctx context.Context, sql string, arguments ...interface{}) (pgconn.CommandTag, error)
+	Query(ctx context.Context, sql string, args ...interface{}) (pgx.Rows, error)
+	Begin(ctx context.Context) (pgx.Tx, error)
+}
+
 type Client struct {
 	ctx  *context.Context
-	pool *pgxpool.Pool
+	pool DB
 }
 
 func New(cnf DBConfig) Client {
