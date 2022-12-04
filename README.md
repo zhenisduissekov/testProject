@@ -1,6 +1,6 @@
 # test-project
 
-## Описание
+## Описание задачи
 
     Python/Go Lang developer test
 
@@ -32,8 +32,13 @@ Service must work in background.
 If cryptocompare is non accessible service must return data from database via own API.
 Data in response must be fresh (realtime). 2-3 minutes discrepancy is ok.
 
+Using websockets is a plus. Clean architecture is a plus. Service scalability is a plus.
 
 # Технические детали
+
+-  Язык программирования: Golang 1.19
+-  База данных: PostgreSQL 14.1
+
 
 ### Структура проекта
 
@@ -43,7 +48,6 @@ Data in response must be fresh (realtime). 2-3 minutes discrepancy is ok.
 - `go.mod` - содержит список всех используемых библиотек.
 - `go.sum` - содержит список контрольных сумм всех используемых библиотек.
 - `main.go` - содержит функию main(), которая запускается при старте сервиса и содержит в себе функционал для настройки и старта сервера.
-- `sonar-project.properties` - содержит настройки для [SonarQube](https://sonar.kar-tel.local/projects).
 
 ### Зависимости
 
@@ -66,4 +70,19 @@ Data in response must be fresh (realtime). 2-3 minutes discrepancy is ok.
 для пересборки swagger необходимо выполнить команду:
     swag init
 сам сваггер доступен по адресу:
-    http://localhost:[port]/swagger
+    http://localhost:3000/swagger
+
+
+### Использование сервиса по API или через сокет
+
+Для получения данных необходимо отправить GET запрос по адресу:
+
+    curl --location --request GET 'http://localhost:3000/service/price'
+
+Для получения данных необходимо отправить запрос по сокету:
+
+    ws://localhost:3000/service/ws/price
+
+сообщение-запрос должен быть формата JSON
+
+    {"tsyms":"BTC", "fsyms":"EUR"}

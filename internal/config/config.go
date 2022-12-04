@@ -12,15 +12,11 @@ import (
 	"github.com/zhenisduissekov/testProject/internal/scheduler"
 )
 
-const (
-	filePath = "internal/config/messages.yaml"
-)
-
 type Config struct {
 	DB            connection.DBConfig
 	HTTP          HTTPConfig
-	Scheduler     scheduler.SchedulerConfig
-	CryptoCompare cryptocompare.CryptoCompareConfig
+	Scheduler     scheduler.Config
+	CryptoCompare cryptocompare.Config
 	LogLevel      string
 }
 
@@ -53,10 +49,10 @@ func New() *Config {
 			Host: getEnv("HTTP_HOST", "localhost"),
 			Port: getEnv("HTTP_PORT", "8080"),
 		},
-		Scheduler: scheduler.SchedulerConfig{
+		Scheduler: scheduler.Config{
 			Interval: getEnvAsInt("SCHEDULER_INTERVAL_SECONDS", 10),
 		},
-		CryptoCompare: cryptocompare.CryptoCompareConfig{
+		CryptoCompare: cryptocompare.Config{
 			APIKey:       getEnv("CRYPTOCOMPARE_API_KEY", "https://min-api.cryptocompare.com/data/pricemultifull"),
 			TimeOut:      getEnvAsInt("CRYPTOCOMPARE_TIMEOUT", 10),
 			FSYMS:        getEnvSYMS("FSYMS", "BTC,ETH"),

@@ -5,15 +5,16 @@ go 1.19
 require (
 	github.com/Masterminds/squirrel v1.5.3
 	github.com/ansrivas/fiberprometheus/v2 v2.4.1
+	github.com/driftprogramming/pgxpoolmock v1.1.0
 	github.com/gofiber/fiber/v2 v2.40.1
 	github.com/gofiber/swagger v0.1.8
 	github.com/gofiber/websocket/v2 v2.1.2
+	github.com/golang/mock v1.5.0
 	github.com/jackc/pgx/v4 v4.17.2
 	github.com/jackc/tern v1.13.0
 	github.com/joho/godotenv v1.4.0
 	github.com/rs/zerolog v1.28.0
 	github.com/swaggo/swag v1.8.8
-	golang.org/x/time v0.2.0
 )
 
 require (

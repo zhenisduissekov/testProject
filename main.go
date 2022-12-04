@@ -16,14 +16,12 @@ import (
 	"github.com/zhenisduissekov/testProject/internal/handler"
 	lg "github.com/zhenisduissekov/testProject/internal/logger"
 	"github.com/zhenisduissekov/testProject/internal/repository"
-	"github.com/zhenisduissekov/testProject/internal/socket"
-	"time"
+	"github.com/zhenisduissekov/testProject/internal/scheduler"
 )
 
 var (
-	listenAddress = ":3001"
+	listenAddress = ":3000"
 	reqLogFormat  = "[${time}] ${status} - ${latency} ${method} ${path} ${ip} ${url} in ${bytesReceived} bytes/ out ${bytesSent} bytes\n"
-	shutDownDelay = 2 * time.Second
 )
 
 // @title TEST service API
@@ -38,12 +36,11 @@ func main() {
 	conn := connection.New(cnf.DB)
 	repo := repository.New(conn)
 	crypto := cryptocompare.New(cnf.CryptoCompare, repo)
-	socket := socket.New(repo)
-	h := handler.New(crypto, socket)
+	h := handler.New(crypto)
 
-	//go func() { //todo: uncomment this
-	//	scheduler.Run(cnf.Scheduler, crypto)
-	//}()
+	go func() {
+		scheduler.Run(cnf.Scheduler, crypto)
+	}()
 
 	if err := server(h, cnf.DB.Service).Listen(listenAddress); err != nil {
 		log.Fatal().Err(err).Msg("Server down")

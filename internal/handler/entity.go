@@ -2,18 +2,15 @@ package handler
 
 import (
 	"github.com/zhenisduissekov/testProject/internal/cryptocompare"
-	"github.com/zhenisduissekov/testProject/internal/socket"
 )
 
 type Handler struct {
 	crypto cryptocompare.Client
-	socket socket.Client
 }
 
-func New(crypto cryptocompare.Client, socket socket.Client) *Handler {
+func New(crypto cryptocompare.Client) *Handler {
 	return &Handler{
 		crypto: crypto,
-		socket: socket,
 	}
 }
 
