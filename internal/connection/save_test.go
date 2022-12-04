@@ -34,7 +34,7 @@ func TestClient_Save(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name: "test1",
+			name: "test1 проверка сохранения, должно быть без ошибок",
 			fields: fields{
 				ctx:  &ctx,
 				pool: mock,

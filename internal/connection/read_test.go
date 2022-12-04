@@ -38,7 +38,7 @@ func TestClient_Read(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name: "test 1",
+			name: "test 1 проверка чтения, должно быть без ошибок",
 			fields: fields{
 				ctx:  &ctx,
 				pool: mock,
