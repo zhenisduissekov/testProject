@@ -2,6 +2,7 @@ package connection
 
 import "fmt"
 
+// reading from DB using connection
 func (c *Client) Read(query string, args []interface{}) (map[string]string, error) {
 	var raw, display string
 

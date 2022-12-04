@@ -6,6 +6,7 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+// reading data from DB repository
 func (r Repository) Read(fsyms, tsyms string) (map[string]string, error) {
 	log.Trace().Msgf("Reading quote for fsyms: [%s] and tsyms: [%s]", fsyms, tsyms)
 	psql := sq.StatementBuilder.PlaceholderFormat(sq.Dollar)

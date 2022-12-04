@@ -6,6 +6,7 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+// saving data to DB repository
 func (r Repository) Save(raw, display []byte, fsyms, tsyms string, error error) error {
 	log.Trace().Msgf("Saving quote for fsyms: [%s] and tsyms: [%s]", fsyms, tsyms)
 	errorMsg := "nil"

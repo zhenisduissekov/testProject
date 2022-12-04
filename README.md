@@ -85,6 +85,6 @@ Using websockets is a plus. Clean architecture is a plus. Service scalability is
 
 сообщение-запрос должен быть формата JSON
 
-    {"tsyms":"BTC", "fsyms":"EUR"}
+    {"fsyms":"EUR", "tsyms":"BTC"}
 * если отправить пустой json {}, то вернутся все данные по всем валютам указанным в конфигурационном файле.
 ** проверку получения данных при условии если сервис сryptocompare не работает, производил отключением Wi-Fi.

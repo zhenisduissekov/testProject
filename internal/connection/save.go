@@ -5,6 +5,7 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+// saving to DB using connection
 func (c *Client) Save(query string, args []interface{}) (err error) {
 	resp, err := c.pool.Exec(*c.ctx, query, args...)
 	if err != nil {
