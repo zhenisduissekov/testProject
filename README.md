@@ -58,7 +58,7 @@ Using websockets is a plus. Clean architecture is a plus. Service scalability is
 
 Для сборки проекта необходимо выполнить команду:
 
-    docker-compose up
+    docker-compose up -d
 снести
     docker-compose down --rmi local
 
